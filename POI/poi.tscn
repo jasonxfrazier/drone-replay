@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dutafqg5ppevp"]
+
+[ext_resource type="Script" path="res://POI/poi.gd" id="1_4rlx7"]
+[ext_resource type="Texture2D" uid="uid://cjnbpovdntbhk" path="res://POI/poi-svgrepo-com.svg" id="2_e8oi8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k7jjc"]
+radius = 229.085
+
+[sub_resource type="LabelSettings" id="LabelSettings_bbnro"]
+font_size = 86
+font_color = Color(0, 0.92549, 0.137255, 1)
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+
+[node name="POI" type="Area2D"]
+script = ExtResource("1_4rlx7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k7jjc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.86102e-06, 3.8147e-06)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("2_e8oi8")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 72.0
+offset_top = -184.0
+offset_right = 147.0
+offset_bottom = -66.0
+text = "6"
+label_settings = SubResource("LabelSettings_bbnro")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://66ii06vqup7y"]
+
+[ext_resource type="PackedScene" uid="uid://bocc2l7y80yq5" path="res://Maps/Map 1/map1.tscn" id="1_gbspp"]
+[ext_resource type="PackedScene" uid="uid://drk6dfwifnp3e" path="res://Drone/drone.tscn" id="2_cada5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_gbspp")]
+
+[node name="Drone" parent="." instance=ExtResource("2_cada5")]
+position = Vector2(648, 743)

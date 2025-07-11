@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cggqns0usq6ej"]
+
+[ext_resource type="Script" path="res://DroneManager/DroneManager.gd" id="1_otgw2"]
+
+[node name="DroneManager" type="Node2D"]
+script = ExtResource("1_otgw2")

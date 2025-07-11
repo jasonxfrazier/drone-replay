@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://66ii06vqup7y"]
+
+[ext_resource type="PackedScene" uid="uid://bocc2l7y80yq5" path="res://Maps/Map 1/map1.tscn" id="1_gbspp"]
+[ext_resource type="PackedScene" uid="uid://drk6dfwifnp3e" path="res://Drone/drone.tscn" id="2_cada5"]
+[ext_resource type="PackedScene" uid="uid://cggqns0usq6ej" path="res://DroneManager/dronemanager.tscn" id="2_use1y"]
+[ext_resource type="PackedScene" uid="uid://c4seiufcthhad" path="res://POIManager/poi_manager.tscn" id="4_0mk3p"]
+[ext_resource type="PackedScene" uid="uid://dutafqg5ppevp" path="res://POI/poi.tscn" id="5_skyp6"]
+[ext_resource type="Script" path="res://Replays/Replay 1/ReplayUI.gd" id="6_6rm4t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_snst8"]
+font_color = Color(6.83457e-06, 0.773823, 1.54018e-06, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_gbspp")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3088, 2016)
+zoom = Vector2(0.191, 0.191)
+
+[node name="POIManager" parent="." instance=ExtResource("4_0mk3p")]
+poi_scene = ExtResource("5_skyp6")
+
+[node name="DroneManager" parent="." instance=ExtResource("2_use1y")]
+drone_scene = ExtResource("2_cada5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2544.0
+offset_top = 3304.0
+offset_right = 2544.0
+offset_bottom = 3304.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6.61, 6.61)
+size_flags_horizontal = 3
+script = ExtResource("6_6rm4t")
+
+[node name="ControlsVBox" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 148.0
+
+[node name="ButtonRow" type="HBoxContainer" parent="Control/ControlsVBox"]
+layout_mode = 2
+
+[node name="StepBackwardBtn" type="Button" parent="Control/ControlsVBox/ButtonRow"]
+layout_mode = 2
+text = "<<"
+
+[node name="PlayPauseBtn" type="Button" parent="Control/ControlsVBox/ButtonRow"]
+layout_mode = 2
+text = "Play"
+
+[node name="StepForwardBtn" type="Button" parent="Control/ControlsVBox/ButtonRow"]
+layout_mode = 2
+text = ">>"
+
+[node name="TimeLabel" type="Label" parent="Control/ControlsVBox/ButtonRow"]
+layout_mode = 2
+text = "0:00"
+label_settings = SubResource("LabelSettings_snst8")
+
+[node name="TimeSlider" type="HSlider" parent="Control/ControlsVBox"]
+layout_mode = 2
+max_value = 0.0

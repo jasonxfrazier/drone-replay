@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3 uid="uid://chdl3d53l6n80"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_mey4e"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 72.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_mey4e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FlightHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/FlightHBox"]
+layout_mode = 2
+text = "Flight CSV:"
+
+[node name="FlightPathLabel" type="Label" parent="VBoxContainer/FlightHBox"]
+layout_mode = 2
+
+[node name="FlightBrowse" type="Button" parent="VBoxContainer/FlightHBox"]
+layout_mode = 2
+text = "Browse.."
+
+[node name="POIHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/POIHBox"]
+layout_mode = 2
+text = "POI CSV (optional): "
+
+[node name="POIPathLabel" type="Label" parent="VBoxContainer/POIHBox"]
+layout_mode = 2
+
+[node name="POIBrowse" type="Button" parent="VBoxContainer/POIHBox"]
+layout_mode = 2
+text = "Browse..."
+
+[node name="PlayHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/PlayHBox"]
+layout_mode = 2
+text = "Run"
+
+[node name="FlightFileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 2
+size = Vector2i(324, 180)
+ok_button_text = "Open"
+mode_overrides_title = false
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[node name="POIFileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(105, 115)
+size = Vector2i(800, 500)
+ok_button_text = "Open"
+mode_overrides_title = false
+file_mode = 0
+access = 2
+use_native_dialog = true

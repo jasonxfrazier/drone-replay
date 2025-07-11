@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://pdl0ujthcjsc"
+
+[deps]
+
+files=["res://CSVs/poi/POI_Data_CSV__4_POIs_.name.translation", "res://CSVs/poi/POI_Data_CSV__4_POIs_.lat.translation", "res://CSVs/poi/POI_Data_CSV__4_POIs_.lon.translation"]
+
+source_file="res://CSVs/poi/POI_Data_CSV__4_POIs_.csv"
+dest_files=["res://CSVs/poi/POI_Data_CSV__4_POIs_.name.translation", "res://CSVs/poi/POI_Data_CSV__4_POIs_.lat.translation", "res://CSVs/poi/POI_Data_CSV__4_POIs_.lon.translation"]
+
+[params]
+
+compress=true
+delimiter=0

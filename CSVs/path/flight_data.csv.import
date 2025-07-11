@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://j1wl5v7d5end"
+
+[deps]
+
+files=["res://CSVs/path/flight_data.timestamp.translation", "res://CSVs/path/flight_data.lat.translation", "res://CSVs/path/flight_data.lon.translation", "res://CSVs/path/flight_data.alt.translation", "res://CSVs/path/flight_data.speed.translation"]
+
+source_file="res://CSVs/path/flight_data.csv"
+dest_files=["res://CSVs/path/flight_data.timestamp.translation", "res://CSVs/path/flight_data.lat.translation", "res://CSVs/path/flight_data.lon.translation", "res://CSVs/path/flight_data.alt.translation", "res://CSVs/path/flight_data.speed.translation"]
+
+[params]
+
+compress=true
+delimiter=0
