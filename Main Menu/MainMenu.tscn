@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chdl3d53l6n80"]
 
-[ext_resource type="Script" path="res://MainMenu.gd" id="1_mey4e"]
-[ext_resource type="Shader" path="res://MainMenu.gdshader" id="2_t2syk"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_mey4e"]
+[ext_resource type="Shader" path="res://Main Menu/MainMenu.gdshader" id="2_t2syk"]
 [ext_resource type="Texture2D" uid="uid://bns6aftxsxydr" path="res://assets/map.png" id="3_3nwk3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ynduf"]
