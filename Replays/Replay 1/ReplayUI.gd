@@ -27,7 +27,7 @@ func _ready() -> void:
 	# Start processing so we can update label even when playing
 	set_process(true)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Sync UI when playing
 	if timectrl.is_playing:
 		slider.value = timectrl.current_time

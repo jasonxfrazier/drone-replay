@@ -16,7 +16,7 @@ func setup(track: Array, id: int = 0) -> void:
 	if points.size() > 0:
 		global_position = points[0]["pos"]
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if points.size() < 2:
 		return
 

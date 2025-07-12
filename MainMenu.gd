@@ -1,6 +1,7 @@
 # MainMenu.gd — attach to root Control of MainMenu.tscn
 extends Control
 
+# UI nodes
 var flight_btn    : Button
 var flight_label  : Label
 var poi_btn       : Button
@@ -9,15 +10,26 @@ var play_btn      : Button
 var flight_dialog : FileDialog
 var poi_dialog    : FileDialog
 
+# Parallax background
+@export var bg_sprite_path: NodePath = "$Map"
+@onready var bg_sprite: Sprite2D = get_node_or_null(bg_sprite_path) as Sprite2D
+var bg_base_pos: Vector2
+@onready var parallax: Parallax2D = $Parallax2D
+var parallax_strength: float = 0.07 
+
 func _ready() -> void:
 	# fetch UI elements by path
 	flight_btn    = get_node_or_null("VBoxContainer/FlightHBox/FlightBrowse")     as Button
-	flight_label  = get_node_or_null("VBoxContainer/FlightHBox/FlightPathLabel") as Label
-	poi_btn       = get_node_or_null("VBoxContainer/POIHBox/POIBrowse")          as Button
-	poi_label     = get_node_or_null("VBoxContainer/POIHBox/POIPathLabel")       as Label
-	play_btn      = get_node_or_null("VBoxContainer/PlayHBox/PlayButton")        as Button
-	flight_dialog = get_node_or_null("FlightFileDialog")                         as FileDialog
-	poi_dialog    = get_node_or_null("POIFileDialog")                            as FileDialog
+	flight_label  = get_node_or_null("VBoxContainer/FlightHBox/FlightPathLabel")  as Label
+	poi_btn       = get_node_or_null("VBoxContainer/POIHBox/POIBrowse")           as Button
+	poi_label     = get_node_or_null("VBoxContainer/POIHBox/POIPathLabel")        as Label
+	play_btn      = get_node_or_null("VBoxContainer/PlayHBox/PlayButton")         as Button
+	flight_dialog = get_node_or_null("FlightFileDialog")                          as FileDialog
+	poi_dialog    = get_node_or_null("POIFileDialog")                             as FileDialog
+
+	# record base position for parallax
+	if bg_sprite:
+		bg_base_pos = bg_sprite.position
 
 	# validate required nodes
 	if not flight_btn:
@@ -50,6 +62,21 @@ func _ready() -> void:
 		poi_btn.connect("pressed", Callable(self, "_on_poi_browse"))
 	if play_btn:
 		play_btn.connect("pressed", Callable(self, "_on_play"))
+
+	# enable processing for parallax
+	set_process(true)
+
+func _process(_delta: float) -> void:
+	# parallax the background opposite mouse movement
+	var vp_size = get_viewport().get_visible_rect().size
+	var mouse   = get_viewport().get_mouse_position()
+	var center  = vp_size * 0.5
+
+	# mouse offset from center, scaled down
+	var raw_offset: Vector2 = (mouse - center) * parallax_strength
+
+	# apply it directly to Parallax2D.scroll_offset
+	parallax.scroll_offset = raw_offset
 
 # open flight CSV selector
 func _on_flight_browse() -> void:
