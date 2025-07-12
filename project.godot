@@ -23,7 +23,3 @@ TimeController="*res://Scripts/TimeController.gd"
 [display]
 
 window/stretch/mode="canvas_items"
-
-[rendering]
-
-renderer/rendering_method="mobile"
